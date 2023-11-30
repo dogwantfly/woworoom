@@ -1,0 +1,115 @@
+:root {
+  --primary-900: rgba(48, 30, 95, 1);
+  --secondary-500: rgba(185, 185, 185, 1);
+  --secondary-700: rgba(121, 121, 121, 1);
+}
+img {
+  object-fit: cover;
+}
+body {
+  font-family:  'Noto Sans TC', sans-serif;
+}
+.logo-hover{
+  transform: scale(1);
+}
+.logo-hover:hover{
+  transform: scale(1.05);
+}
+.nav-menu {
+  max-height: 0;
+  transition: max-height .3s;
+}
+.open-menu.nav-menu {
+  max-height: 300px;
+}
+.table td, .table th{
+  padding: 0.75rem 0.5rem;
+  font-weight: 400;
+  border-bottom: 1px solid var(--secondary-500);
+}
+.compare .table td, .compare .table th[scope=col]:not(:nth-of-type(2)) {
+  color: var(--secondary-700);
+}
+.compare .table td {
+  font-size: 1rem;
+}
+.recommendation-wall {
+  overflow-x: scroll;
+}
+.recommendation li {
+  width: 350px;
+  flex-shrink: 0;
+}
+.recommendation li:not(:first-of-type) {
+  margin-left: 30px;
+}
+.recommendation img {
+  flex-shrink: 0;
+  user-select: none;
+}
+.recommendation .content {
+  width: 255px;
+  flex-shrink: 0;
+}
+.recommendation-wall {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}
+.recommendation-wall::-webkit-scrollbar {
+  display: none;
+}
+.delivery-steps li:not(:last-of-type) .delivery-icon::after {
+  content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -90px;
+    border: 10px solid #000000;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+@media (min-width: 1024px) {
+  .delivery-steps li:not(:last-of-type) .delivery-icon::after {
+    bottom: auto;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    right: -50%;
+    left: auto;
+    border-left: 10px solid black;
+    border-top: 10px solid transparent;
+  }
+}
+@media (min-width: 1280px) {
+  .delivery-steps li:not(:last-of-type) .delivery-icon::after {
+  right: -70%;
+  }
+}
+@media (min-width: 1536px) {
+  .delivery-steps li:not(:last-of-type) .delivery-icon::after {
+  right: -90%;
+  }
+}
+.delivery-icon {
+  font-size: 3.75rem;
+}
+.cart thead th {
+  text-align: start;
+  border: 0;
+}
+
+.card-hover:hover img{
+  transform: scale(1.05);
+}
+.card-hover:hover button {
+  background-color: var(--primary-900);
+}
+
+.invalid-feedback {
+  visibility: hidden;
+}
+
+.admin .table td, .admin .table th{
+  border: 1px solid black;
+  padding: 1rem;
+}
