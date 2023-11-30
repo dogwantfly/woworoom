@@ -1,4 +1,4 @@
-import axios from 'axios';
+import '../../main.js';
 const { VITE_API_PATH } = import.meta.env;
 const productSelect = document.querySelector('[data-product-select]');
 
