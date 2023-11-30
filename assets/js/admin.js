@@ -13,9 +13,9 @@ function makeData(data, data_type) {
   data.forEach((item) => {
     item.products.forEach((product) => {
       if (!obj[product[dataType]]) {
-        obj[product[dataType]] = product.price;
+        obj[product[dataType]] = product.price * product.quantity;
       } else {
-        obj[product[dataType]] += product.price;
+        obj[product[dataType]] += product.price * product.quantity;
       }
     });
   });
@@ -134,9 +134,9 @@ function renderOrders(filterData) {
                 ${
                   item.products.length > 1
                     ? `<ul>${item.products
-                        .map((item) => `<li>${item.title}</li>`)
+                        .map((item) => `<li>${item.title} * ${item.quantity} </li>`)
                         .join('')}</ul>`
-                    : `${item.products.map((item) => item.title)}`
+                    : `${item.products.map((item) => `${item.title} * ${item.quantity}`)}`
                 }
               </td>
               <td>
