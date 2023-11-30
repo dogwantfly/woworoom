@@ -20,14 +20,16 @@ function makeData(data, data_type) {
     });
   });
   const sortedArr = Object.entries(obj).sort((a, b) => b[1] - a[1]);
-  const removedArr = sortedArr.splice(3);
-  sortedArr.push([
-    '其他',
-    removedArr.reduce(
-      (accumulator, currentValue) => accumulator + currentValue[1],
-      0
-    ),
-  ]);
+  if (sortedArr.length > 3) {
+    const removedArr = sortedArr.splice(3);
+    sortedArr.push([
+      '其他',
+      removedArr.reduce(
+        (accumulator, currentValue) => accumulator + currentValue[1],
+        0
+      ),
+    ]);
+  }
 
   return sortedArr;
 }
@@ -70,7 +72,7 @@ function makePieChart(data, data_type) {
     pie: {
       label: {
         format: function (value, ratio, id) {
-          return d3.format('$,')(value)
+          return d3.format('$,')(value);
         },
       },
     },
