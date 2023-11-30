@@ -1,4 +1,5 @@
 import '../../main.js';
+import axios from 'axios';
 const { VITE_API_PATH } = import.meta.env;
 const productSelect = document.querySelector('[data-product-select]');
 
@@ -13,6 +14,17 @@ const productList = document.querySelector('[data-product-list]');
 const cartsSection = document.querySelector('[data-cart-list]');
 const deleteAllBtn = document.querySelector('[data-delete-all-cart');
 let productData;
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer);
+    toast.addEventListener('mouseleave', Swal.resumeTimer);
+  },
+});
 
 function disableSubmitBtn() {
   if (![...inputs].every((item) => item.value) || !paymentSelect.value) {
@@ -410,14 +422,4 @@ function removeCart(e) {
 productList.addEventListener('click', addCart);
 cartsSection.addEventListener('change', editCart);
 cartsSection.addEventListener('click', removeCart);
-const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener('mouseenter', Swal.stopTimer);
-    toast.addEventListener('mouseleave', Swal.resumeTimer);
-  },
-});
+
