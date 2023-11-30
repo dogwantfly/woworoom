@@ -1,5 +1,4 @@
-import '../../main.js';
-import axios from 'axios';
+import axios from '../../main.js';
 import * as d3 from 'd3';
 import * as c3 from 'c3';
 import 'c3/c3.css';
